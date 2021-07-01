@@ -47,11 +47,11 @@ app.get('/products/new', (req, res) => {
   res.render('New')
 })
 /*Delete*/
-// app.delete('/logs/:id', (req, res)=>{
-//     Products.findByIdAndRemove(req.params.id, (err, data)=>{
-//         res.redirect('/logs');//redirect back to fruits index
-//     });
-// });
+app.delete('/products/:id', (req, res)=>{
+    Products.findByIdAndRemove(req.params.id, (err, data)=>{
+        res.redirect('/products');//redirect back to fruits index
+    });
+});
 /*Update*/
 /*Create*/
 app.post('/products', (req, res) => {
