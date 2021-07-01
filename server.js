@@ -47,6 +47,11 @@ app.get('/products/new', (req, res) => {
   res.render('New')
 })
 /*Delete*/
+// app.delete('/logs/:id', (req, res)=>{
+//     Products.findByIdAndRemove(req.params.id, (err, data)=>{
+//         res.redirect('/logs');//redirect back to fruits index
+//     });
+// });
 /*Update*/
 /*Create*/
 app.post('/products', (req, res) => {
@@ -76,6 +81,19 @@ app.post('/products', (req, res) => {
 })
 /*Edit*/
 /*Show*/
+app.get('/products/:id', (req, res) => {
+  Products.findById(req.params.id, (err, createdVinyls)=>{
+    if(err){
+      res.status(404).send({
+          msg: err.message
+      })
+    } else {
+      res.render('Show', {
+        products: createdVinyls
+      })
+    }
+  })
+})
 
 app.listen(PORT, () => {
   console.log('Listening on PORT', PORT)
