@@ -50,18 +50,18 @@ app.get('/products/new', (req, res) => {
 /*Update*/
 /*Create*/
 app.post('/products', (req, res) => {
-  if(req.body.vinylIsMint === 'on'){
-    req.body.vinylIsMint = true;
-    req.body.vinylIsGood = false;
-    req.body.vinylIsPoor = false;
-  }else if(req.body.vinylIsGood ==='on'){
-    req.body.vinylIsGood = true;
-    req.body.vinylIsMint = false;
-    req.body.vinylIsPoor = false;
-  }else if(req.body.vinylIsPoor ==='on'){
-    req.body.vinylIsPoor = true;
-    req.body.vinylIsMint = false;
-    req.body.vinylIsGood = false;
+  if(req.body.mintcondition === 'on'){
+    req.body.mintcondition = true;
+    req.body.goodcondition = false;
+    req.body.poorcondition = false;
+  }else if(req.body.goodcondition ==='on'){
+    req.body.goodcondition = true;
+    req.body.mintcondition = false;
+    req.body.poorcondition = false;
+  }else if(req.body.poorcondition ==='on'){
+    req.body.poorcondition = true;
+    req.body.mintcondition = false;
+    req.body.goodcondition = false;
   }
   Products.create(req.body, (err, createdVinyls) => {
     if(err){
