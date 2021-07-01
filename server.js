@@ -18,7 +18,6 @@ mongoose.connection.once('connected', () => {
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine())
 app.use((req, res, next) => {
-  console.log('I run before all routes')
   next()
 })
 app.use(express.urlencoded({ extended: true }))
@@ -31,7 +30,17 @@ app.get('/', (req, res) => {
 
 /*Index*/
 app.get('/products', (req, res) => {
-
+  Products.find({}, (err, createdVinyls) =>{
+    if(err){
+      res.status(404).send({
+        msg: err.message
+      })
+    }else {
+      res.render('Index', {
+        products: createdVinyls
+      })
+    }
+  })
 })
 /*New*/
 app.get('/products/new', (req, res) => {
@@ -40,6 +49,31 @@ app.get('/products/new', (req, res) => {
 /*Delete*/
 /*Update*/
 /*Create*/
+app.post('/products', (req, res) => {
+  if(req.body.vinylIsMint === 'on'){
+    req.body.vinylIsMint = true;
+    req.body.vinylIsGood = false;
+    req.body.vinylIsPoor = false;
+  }else if(req.body.vinylIsGood ==='on'){
+    req.body.vinylIsGood = true;
+    req.body.vinylIsMint = false;
+    req.body.vinylIsPoor = false;
+  }else if(req.body.vinylIsPoor ==='on'){
+    req.body.vinylIsPoor = true;
+    req.body.vinylIsMint = false;
+    req.body.vinylIsGood = false;
+  }
+  Products.create(req.body, (err, createdVinyls) => {
+    if(err){
+      res.status(404).send({
+        msg: err.message
+      })
+    }else{
+      console.log(createdVinyls);
+      res.redirect('/products')
+    }
+  })
+})
 /*Edit*/
 /*Show*/
 
