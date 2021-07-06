@@ -9,6 +9,7 @@ class Index extends React.Component {
     const products = this.props.products;
     return (
       <div title={'Products Index Page'}>
+        <link rel="stylesheet"  href='/css/indexpage.css' />
         <h1>Products</h1>
         <button><a href="/products/new">Add a New Vinyl</a></button>
         <ul>
@@ -19,8 +20,8 @@ class Index extends React.Component {
                   <h2>{products.artist}</h2>
                   <img src={products.img}></img>
                   <h3>{products.album}</h3>
-                  <h3>Price: {products.price}</h3>
-                  <h3>Qty: {products.qty}</h3>
+                  <h3>Price: ${products.price}</h3>
+                  <h3>In-Stock: {products.qty}</h3>
                   <h3>{products.mintcondition? 'Mint':''}</h3>
                   <h3>{products.goodcondition? 'Good':''}</h3>
                   <h3>{products.poorcondition? 'Poor':''}</h3>
@@ -35,7 +36,10 @@ class Index extends React.Component {
           }
         </ul>
       </div>
+
     )
   }
 }
+
+
 module.exports = Index;

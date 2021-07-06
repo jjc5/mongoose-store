@@ -17,6 +17,11 @@ class Show extends React.Component {
         <h3>{products.mintcondition? 'Condition: Mint':''}</h3>
         <h3>{products.goodcondition? 'Condition: Good':''}</h3>
         <h3>{products.poorcondition? 'Condition: Poor':''}</h3>
+        <form action={`/products/${this.props.products._id}?_method=PUT`} method="POST">
+          <input type="submit" value="Buy"/>
+        </form>
+
+        <br/>
         <a href='/products'>BACK</a>
       </div>
     )

@@ -1,0 +1,8 @@
+html {
+  background-image: url("https://wallpaperaccess.com/full/3950406.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
