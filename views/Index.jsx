@@ -10,33 +10,31 @@ class Index extends React.Component {
     return (
       <div title={'Products Index Page'}>
         <link rel="stylesheet"  href='/css/indexpage.css' />
-        <h1>Products</h1>
-        <button><a href="/products/new">Add a New Vinyl</a></button>
-        <ul>
+        <h1 id='index-title'>999 Club</h1>
+        <button id='addBtn' class='btn'><a class='anchor'href="/products/new">Add a New Vinyl</a></button>
+        <ul id='ul-index'>
           {
             products && products.map((products, i) => {
               return(
-                <li style={caseStyle}>
-                  <h2>{products.artist}</h2>
+                <li id='li-index' style={caseStyle}>
+                  <h2><button class='btn selectBtn'><a class='anchor'href={`/products/${products._id}`}>SELECT</a></button><button class='btn'><a class='anchor'href={`/products/${products._id}/edit`}>EDIT</a></button><form method="POST" action={`/products/${products._id}?_method=DELETE`}>
+                    <input class='btn' type="submit" value="DELETE"/>
+                  </form></h2>
+                  <br/>
+                  <br/>
                   <img src={products.img}></img>
                   <h3>{products.album}</h3>
                   <h3>Price: ${products.price}</h3>
                   <h3>In-Stock: {products.qty}</h3>
-                  <h3>{products.mintcondition? 'Mint':''}</h3>
-                  <h3>{products.goodcondition? 'Good':''}</h3>
-                  <h3>{products.poorcondition? 'Poor':''}</h3>
-                  <button><a href={`/products/${products._id}`}>SELECT</a></button>
-                  <form method="POST" action={`/products/${products._id}?_method=DELETE`}>
-                    <input type="submit" value="DELETE"/>
-                  </form>
-                  <button><a href={`/products/${products._id}/edit`}>Edit This Product</a></button>
+                  <h3>{products.mintcondition? 'Condition: Mint':''}</h3>
+                  <h3>{products.goodcondition? 'Condition: Good':''}</h3>
+                  <h3>{products.poorcondition? 'Condition: Poor':''}</h3>
                 </li>
               )
             })
           }
         </ul>
       </div>
-
     )
   }
 }
