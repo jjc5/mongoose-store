@@ -1,0 +1,23 @@
+html {
+  background-image: url("https://wallpaperaccess.com/full/3950406.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+#editForm{
+  border: 5px solid rgb(92, 71, 137);
+  border-radius: 10px;
+  width: 250px;
+  font-size: 20px;
+  margin:auto;
+}
+input{
+  width: 240px;
+  font-size: 20px;
+}
+div{
+  margin-top: 100px;
+}

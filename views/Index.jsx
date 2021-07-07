@@ -10,6 +10,7 @@ class Index extends React.Component {
     return (
       <div title={'Products Index Page'}>
         <link rel="stylesheet"  href='/css/indexpage.css' />
+      
         <h1 id='index-title'>999 Club</h1>
         <button id='addBtn' class='btn'><a class='anchor'href="/products/new">Add a New Vinyl</a></button>
         <ul id='ul-index'>

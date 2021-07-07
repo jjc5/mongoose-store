@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.get('/', (req, res) => {
-  res.send('Welcome to the Mongoose Store')
+  res.redirect('/products')
 })
 
 /*Index*/
@@ -46,6 +46,7 @@ app.delete('/products/:id', (req, res)=>{
 });
 /*Update*/
 app.put('/products/:id', (req, res)=>{
+  console.log(req.body)
   if(req.body.mintcondition === 'on'){
     req.body.mintcondition = true;
     req.body.goodcondition = false;
@@ -64,20 +65,7 @@ app.put('/products/:id', (req, res)=>{
   });
 });
 
-app.put('/products/:id', (req, res)=>{
-  if(req.body.mintcondition === 'on'){
-    req.body.mintcondition = true;
-    req.body.goodcondition = false;
-    req.body.poorcondition = false;
-  }else if(req.body.goodcondition ==='on'){
-    req.body.goodcondition = true;
-    req.body.mintcondition = false;
-    req.body.poorcondition = false;
-  }else if(req.body.poorcondition ==='on'){
-    req.body.poorcondition = true;
-    req.body.mintcondition = false;
-    req.body.goodcondition = false;
-  }
+app.get('/products/:id/buy', (req, res)=>{
   Products.findByIdAndUpdate(req.params.id, { $inc: {qty: -1 } }, {new:true}, (err, updatedProduct)=>{
       res.redirect('/products');
   });

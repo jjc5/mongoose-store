@@ -1,0 +1,74 @@
+html {
+  background-image: url("https://wallpaperaccess.com/full/3950406.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+
+}
+
+label{
+  /* border: solid lightblue; */
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 110px;
+  text-align: right;
+  margin-left: 26%;
+  font-size: 30px;
+
+}
+input {
+  background: rgb(100,100,100,.5);
+  width: 200px;
+  height: 30px;
+  display: inline-block;
+  float: left;
+  color: white;
+
+}
+#conditionInput{
+  border: solid blue;
+  float: none;
+  width:25px;
+  height: 15px;
+
+}
+#condition{
+  font-size: 20px;
+  margin-left: 29%;
+  width: 400px;
+  margin-top: 0;
+  border: none;
+  background: transparent;
+}
+h1{
+  /* border: solid blue; */
+  text-align: center;
+  width: 310px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+#submitBtn{
+  margin:auto;
+  width: 125px;
+  margin-left: 41%;
+  background: rgb(100,100,100,.7);
+  color: white;
+
+
+}
+div{
+  border: solid indigo;
+  background: rgb(92, 71, 137, .6);
+  width: 700px;
+  margin: auto;
+  margin-top: 100px;
+
+  font-size: 30px;
+}
+form{
+  /* border: solid white; */
+}
