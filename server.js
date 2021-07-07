@@ -19,7 +19,6 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
   res.redirect('/products')
 })
-
 /*Index*/
 app.get('/products', (req, res) => {
   Products.find({}, (err, createdVinyls) =>{
@@ -124,7 +123,6 @@ app.get('/products/:id', (req, res) => {
     }
   })
 })
-
 app.listen(PORT, () => {
   console.log('Listening on PORT', PORT)
 });
